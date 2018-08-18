@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
+    android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <android.support.v7.widget.Toolbar
@@ -16,7 +15,7 @@
             android:id="@+id/textReg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Register"
+            android:text="BMI"
             android:textSize="20dp"/>
     </android.support.v7.widget.Toolbar>
 
@@ -24,10 +23,9 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
             <EditText
@@ -35,42 +33,26 @@
                 android:layout_height="51dp"
                 android:layout_gravity="center"
                 android:layout_margin="10dp"
-                android:drawableLeft="@drawable/ic_action_name"
-                android:hint="@string/user_id" />
+                android:drawableLeft="@drawable/ic_action_cm"
+                android:hint="@string/height"
+                android:inputType="number"/>
+
 
             <EditText
                 android:layout_width="323dp"
                 android:layout_height="51dp"
                 android:layout_gravity="center"
-                android:layout_margin="10dp"
-                android:drawableLeft="@drawable/ic_action_name1"
-                android:hint="@string/nameuser" />
-
-            <EditText
-                android:layout_width="323dp"
-                android:layout_height="51dp"
-                android:layout_gravity="center"
-                android:layout_margin="10dp"
-                android:drawableLeft="@drawable/ic_action_age"
-                android:hint="@string/ageuser" />
-
-            <EditText
-                android:layout_width="323dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center"
-                android:layout_margin="10dp"
-                android:drawableLeft="@drawable/ic_action_pass"
-                android:hint="@string/password"
-                android:inputType="textPassword" />
+                android:drawableLeft="@drawable/ic_action_kg"
+                android:hint="@string/weight"
+                android:inputType="number"/>
 
             <Button
-                android:id="@+id/button_reg"
+                android:id="@+id/cal_bmi"
                 android:layout_width="326dp"
-                android:layout_height="60dp"
+                android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:text="REGISTER NEW ACCOUNT" />
+                android:text="CALCULATE" />
 
         </LinearLayout>
     </ScrollView>
-
 </LinearLayout>

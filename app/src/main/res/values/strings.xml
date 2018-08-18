@@ -2,7 +2,17 @@
     <string name="app_name">Healthy</string>
     <string name="user_id">User ID</string>
     <string name="password">Password</string>
+
+    <string name="reg">Register</string>
+
     <string name="btn_login">LOGIN</string>
-    <string name="btn_reg"> </string>
+    <string name="btn_reg">Register New Account</string>
+
+    <string name="nameuser">Name</string>
+    <string name="ageuser">Age</string>
+
+    <string name="height">Height (cm)</string>
+    <string name="weight">Weight (kg)</string>
+
 
 </resources>
