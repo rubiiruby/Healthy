@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -20,9 +21,16 @@ public class BMIFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        CalBMI();
+
         return inflater.inflate( R.layout.fragment_bmi, container, false);
     }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        CalBMI();
+        super.onActivityCreated(savedInstanceState);
+    }
+
     void CalBMI(){
         Button btn_bmi_cal = (Button) getView().findViewById(R.id.bmi_cal);
         btn_bmi_cal.setOnClickListener(new View.OnClickListener() {
@@ -33,9 +41,9 @@ public class BMIFragment extends Fragment {
                 EditText kg = (EditText) getView().findViewById(R.id.bmi_kg);
 
                 String cm_str = cm.getText().toString();
-                int cm_int = Integer.parseInt(cm_str);
+                Float cm_flo = Float.parseFloat(cm_str);
                 String kg_str = kg.getText().toString();
-                int kg_int = Integer.parseInt(kg_str);
+                Float kg_flo = Float.parseFloat(kg_str);
 
                 if (cm_str.isEmpty() || kg_str.isEmpty()) {
                     Toast.makeText(getActivity(),
@@ -45,7 +53,19 @@ public class BMIFragment extends Fragment {
                     Log.d("USER", "FIELD NAME IS EMPTY");
                 }
                 else {
-                    float bmi = kg_int / ((cm_int/100)*(cm_int/100));
+                    cm_flo = (cm_flo/100)*(cm_flo/100);
+                    Float bmi = kg_flo / cm_flo;
+                    bmi = bmi.shortValue();
+
+                    TextView you_bmi = (TextView) getView().findViewById(R.id.you_bmi);
+                    you_bmi.setVisibility(View.VISIBLE);
+
+
+                    TextView you_bmi_cal = (TextView) getView().findViewById(R.id.you_bmi_cal);
+                    you_bmi_cal.setVisibility(View.VISIBLE);
+                    you_bmi_cal.append(bmi.toString());
+
+
 
                 }
             }

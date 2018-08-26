@@ -20,9 +20,15 @@ public class RegisterFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        RegisterBTN();
+
         return inflater.inflate( R.layout.fragment_register, container, false);
 
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        RegisterBTN();
+        super.onActivityCreated(savedInstanceState);
     }
 
     void RegisterBTN(){
@@ -40,7 +46,7 @@ public class RegisterFragment extends Fragment {
                 String age_str = age.getText().toString();
                 String pass_str = pass.getText().toString();
 
-                if (user_str.isEmpty() && pass_str.isEmpty() && name_str.isEmpty() && age_str.isEmpty()){
+                if (user_str.isEmpty() || pass_str.isEmpty() || name_str.isEmpty() || age_str.isEmpty()){
                     Toast.makeText(getActivity(),
                             "กรุณาระบุกรอกข้อมูลให้ครบถ้วน",
                             Toast.LENGTH_SHORT
@@ -48,7 +54,7 @@ public class RegisterFragment extends Fragment {
                     Log.d("USER", "FIELD NAME IS EMPTY");
                 }
 
-                else if (user_str.equals("admin")){
+                else if (user_str.equals("admin")) {
                     Toast.makeText(getActivity(),
                             "USER นี้มีอยู่ในระบบแล้ว",
                             Toast.LENGTH_SHORT
@@ -60,6 +66,7 @@ public class RegisterFragment extends Fragment {
                     getActivity().getSupportFragmentManager()
                             .beginTransaction()
                             .replace(R.id.main_view, new BMIFragment())
+                            .addToBackStack(null)
                             .commit();
                     Log.d("USER", "GOTO BMI");
                 }
