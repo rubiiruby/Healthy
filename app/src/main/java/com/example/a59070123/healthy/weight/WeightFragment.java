@@ -1,4 +1,4 @@
-package com.example.a59070123.healthy;
+package com.example.a59070123.healthy.weight;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,6 +12,9 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.example.a59070123.healthy.MenuFragment;
+import com.example.a59070123.healthy.R;
 
 import java.util.ArrayList;
 
