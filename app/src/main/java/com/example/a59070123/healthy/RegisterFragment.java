@@ -27,11 +27,11 @@ public class RegisterFragment extends Fragment {
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        RegisterBTN();
+        initRegisterBTN();
         super.onActivityCreated(savedInstanceState);
     }
 
-    void RegisterBTN(){
+    void initRegisterBTN(){
         Button btn_regis = (Button) getView().findViewById(R.id.regis_btn_regisnew);
         btn_regis.setOnClickListener(new View.OnClickListener() {
             @Override

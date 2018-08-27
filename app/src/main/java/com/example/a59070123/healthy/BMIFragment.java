@@ -4,6 +4,8 @@ import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.app.ActionBar;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,16 +24,20 @@ public class BMIFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
+
         return inflater.inflate( R.layout.fragment_bmi, container, false);
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        CalBMI();
+
+        initCalBMI();
+        initButtonBack();
+
         super.onActivityCreated(savedInstanceState);
     }
 
-    void CalBMI(){
+    void initCalBMI(){
         Button btn_bmi_cal = (Button) getView().findViewById(R.id.bmi_cal);
         btn_bmi_cal.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,12 +56,13 @@ public class BMIFragment extends Fragment {
                             "กรุณาระบุข้อมูลให้ครบถ้วน",
                             Toast.LENGTH_SHORT
                     ).show();
-                    Log.d("USER", "FIELD NAME IS EMPTY");
+                    Log.d("BMI", "FIELD NAME IS EMPTY");
                 }
                 else {
+                    Log.d("BMI", "BMI IS VAKUE");
                     cm_flo = (cm_flo/100)*(cm_flo/100);
                     Float bmi = kg_flo / cm_flo;
-                    bmi = bmi.shortValue();
+                    //bmi = bmi.shortValue();
 
                     TextView you_bmi = (TextView) getView().findViewById(R.id.you_bmi);
                     you_bmi.setVisibility(View.VISIBLE);
@@ -65,11 +72,22 @@ public class BMIFragment extends Fragment {
                     you_bmi_cal.setVisibility(View.VISIBLE);
                     you_bmi_cal.append(bmi.toString());
 
-
-
                 }
             }
         });
+    }
+    void initButtonBack(){
+        TextView btn_bmi_back = (TextView) getView().findViewById(R.id.bmi_btn_back);
+        btn_bmi_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.main_view, new MenuFragment()).addToBackStack(null)
+                        .commit();
+            }
+        });
+
     }
 
 }

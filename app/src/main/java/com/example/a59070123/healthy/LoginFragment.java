@@ -29,12 +29,12 @@ public class LoginFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
 
-        LoginBTN();
-        GotoRegisterBTN();
+        initLoginBTN();
+        initGotoRegisterBTN();
         super.onActivityCreated(savedInstanceState);
     }
 
-    void LoginBTN() {
+    void initLoginBTN() {
         Button btn_login = (Button) getView().findViewById(R.id.login_login_btn);
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,11 +53,19 @@ public class LoginFragment extends Fragment {
                             "กรุณาระบุ USER OR PASSWORD",
                             Toast.LENGTH_SHORT
                     ).show();
+
+                    /////////////////////BYPASS
+                    getActivity().getSupportFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.main_view, new MenuFragment()).addToBackStack(null)
+                            .commit();
+                    ///////////////////don't forget delete
+
                     Log.d("USER", "USER OR PASSWORD IS EMPTY");
                 } else if (userID_str.equals("admin") && pass_str.equals("admin")) {
                     getActivity().getSupportFragmentManager()
                             .beginTransaction()
-                            .replace(R.id.main_view, new BMIFragment()).addToBackStack(null)
+                            .replace(R.id.main_view, new MenuFragment()).addToBackStack(null)
                             .commit();
 
                     Log.d("USER", "GOTO BMI");
@@ -68,7 +76,7 @@ public class LoginFragment extends Fragment {
         });
     }
 
-    void GotoRegisterBTN() {
+    void initGotoRegisterBTN() {
         TextView btn_regis = (TextView) getView().findViewById(R.id.login_regis_btn);
         btn_regis.setOnClickListener(new View.OnClickListener() {
             @Override
