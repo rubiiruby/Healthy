@@ -41,18 +41,16 @@ public class MenuFragment extends Fragment {
 
         ListView menuList = (ListView) getView().findViewById(R.id.menu_List);
         menuList.setAdapter(menuAdapter);
-
         menuList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
-
                 Log.d("MENU", "Click on menu = "+menu.get(i));
                 //menu.add("new Value");
                 menuAdapter.notifyDataSetChanged();
 
                 if (menu.get(i).equals("BMI")) {
+
                     getActivity().getSupportFragmentManager()
                             .beginTransaction()
                             .replace(R.id.main_view, new BMIFragment())
@@ -60,6 +58,7 @@ public class MenuFragment extends Fragment {
                             .commit();
                 }
                 else if(menu.get(i).equals("Weight")){
+                    Log.d("MENU", "Click on Weight)");
                     getActivity().getSupportFragmentManager()
                             .beginTransaction()
                             .replace(R.id.main_view, new WeightFragment())

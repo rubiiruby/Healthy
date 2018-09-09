@@ -5,15 +5,15 @@ package com.example.a59070123.healthy.weight;
  */
 
 public class Weight {
-    private String date;
-    private int weight;
-    private String status;
+     String date;
+     int weight;
+     String status;
 
     public Weight(){}
     public Weight(String date, int weight, String status){
-        this.setDate(date);
-        this.setWeight(weight);
-        this.setStatus(status);
+        this.date = date;
+        this.weight = weight;
+        this.status = status;
     }
 
     public String getDate() {
