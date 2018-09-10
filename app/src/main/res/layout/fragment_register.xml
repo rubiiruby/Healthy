@@ -39,7 +39,7 @@
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/regis_userid"
+                android:id="@+id/regis_email"
                 android:layout_width="323dp"
                 android:layout_height="51dp"
                 android:layout_gravity="center"
@@ -67,7 +67,7 @@
                 android:layout_margin="10dp"
                 android:drawableLeft="@drawable/ic_action_pass"
                 android:hint="Re-Password"
-                android:inputType="number"/>
+                android:inputType="textPassword"/>
 
             <Button
                 android:id="@+id/regis_btn_regisnew"
