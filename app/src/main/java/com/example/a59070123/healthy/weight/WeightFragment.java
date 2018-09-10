@@ -46,6 +46,7 @@ public class WeightFragment extends Fragment {
         weight.add(new Weight("02 Jan 2018", 64, "DOWN"));
         weight.add(new Weight("03 Jan 2018", 63, "UP"));
 
+
         ListView weightList =  (ListView) getView().findViewById(R.id.weight_list);
         WeightAdapter weightAdapter = new WeightAdapter(
                 getActivity(),
@@ -86,7 +87,8 @@ public class WeightFragment extends Fragment {
                 Log.d("Weight", "Click ADD FORM");
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.main_view, new WeightFormFragment()).addToBackStack(null)
+                        .replace(R.id.main_view, new WeightFormFragment())
+                        .addToBackStack(null)
                         .commit();
             }
         });
@@ -99,7 +101,8 @@ public class WeightFragment extends Fragment {
                 Log.d("Weight", "Click ADD BACK");
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.main_view, new MenuFragment()).addToBackStack(null)
+                        .replace(R.id.main_view, new MenuFragment())
+                        .addToBackStack(null)
                         .commit();
             }
         });

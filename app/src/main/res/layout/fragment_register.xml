@@ -4,23 +4,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!--<android.support.v7.widget.Toolbar-->
-        <!--android:id="@+id/my_toolbar"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="?attr/actionBarSize"-->
-        <!--android:background="?attr/colorPrimary"-->
-        <!--android:elevation="4dp"-->
-        <!--android:theme="@style/ThemeOverlay.AppCompat.ActionBar">-->
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
 
-        <!--<TextView-->
-            <!--android:id="@+id/textReg"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="Register"-->
-            <!--android:textSize="30dp"-->
-            <!--android:layout_gravity="center"/>-->
+        <TextView
+            android:drawableLeft="@drawable/ic_action_back"
+            android:id="@+id/regis_btn_back"
+            android:layout_width="40dp"
+            android:layout_height="50dp"/>
 
-    <!--</android.support.v7.widget.Toolbar>-->
+        <TextView
+            android:id="@+id/textReg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Register"
+            android:textSize="30dp"
+            android:layout_gravity="center"/>
+
+    </android.support.v7.widget.Toolbar>
 
 
     <ScrollView
@@ -39,26 +45,9 @@
                 android:layout_gravity="center"
                 android:layout_margin="10dp"
                 android:drawableLeft="@drawable/ic_action_name"
-                android:hint="@string/user_id" />
+                android:hint="E-mail" />
 
-            <EditText
-                android:id="@+id/regis_name"
-                android:layout_width="323dp"
-                android:layout_height="51dp"
-                android:layout_gravity="center"
-                android:layout_margin="10dp"
-                android:drawableLeft="@drawable/ic_action_name1"
-                android:hint="@string/nameuser" />
 
-            <EditText
-                android:id="@+id/regis_age"
-                android:layout_width="323dp"
-                android:layout_height="51dp"
-                android:layout_gravity="center"
-                android:layout_margin="10dp"
-                android:drawableLeft="@drawable/ic_action_age"
-                android:hint="@string/ageuser"
-                android:inputType="number"/>
 
             <EditText
                 android:id="@+id/regis_pass"
@@ -69,6 +58,16 @@
                 android:drawableLeft="@drawable/ic_action_pass"
                 android:hint="@string/password"
                 android:inputType="textPassword" />
+
+            <EditText
+                android:id="@+id/regis_repass"
+                android:layout_width="323dp"
+                android:layout_height="51dp"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:drawableLeft="@drawable/ic_action_pass"
+                android:hint="Re-Password"
+                android:inputType="number"/>
 
             <Button
                 android:id="@+id/regis_btn_regisnew"

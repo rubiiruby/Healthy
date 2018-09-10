@@ -27,8 +27,6 @@ public class WeightFormFragment extends Fragment {
 
     }
 
-
-
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 

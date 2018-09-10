@@ -10,7 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.a59070123.healthy.weight.WeightFormFragment;
 
 /**
  * Created by LAB203_03 on 20/8/2561.
@@ -28,6 +31,7 @@ public class RegisterFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         initRegisterBTN();
+        initBackBTN();
         super.onActivityCreated(savedInstanceState);
     }
 
@@ -37,16 +41,14 @@ public class RegisterFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 EditText user = (EditText) getView().findViewById(R.id.regis_userid);
-                EditText name = (EditText) getView().findViewById(R.id.regis_name);
-                EditText age = (EditText) getView().findViewById(R.id.regis_age);
                 EditText pass = (EditText) getView().findViewById(R.id.regis_pass);
+                EditText re_pass = (EditText) getView().findViewById(R.id.regis_repass);
 
                 String user_str = user.getText().toString();
-                String name_str = name.getText().toString();
-                String age_str = age.getText().toString();
                 String pass_str = pass.getText().toString();
+                String re_pass_str = re_pass.getText().toString();
 
-                if (user_str.isEmpty() || pass_str.isEmpty() || name_str.isEmpty() || age_str.isEmpty()){
+                if (user_str.isEmpty() || pass_str.isEmpty() || re_pass_str.isEmpty()){
                     Toast.makeText(getActivity(),
                             "กรุณาระบุกรอกข้อมูลให้ครบถ้วน",
                             Toast.LENGTH_SHORT
@@ -54,13 +56,22 @@ public class RegisterFragment extends Fragment {
                     Log.d("USER", "FIELD NAME IS EMPTY");
                 }
 
-                else if (user_str.equals("admin")) {
+                else if(user_str.length() < 6){
                     Toast.makeText(getActivity(),
-                            "USER นี้มีอยู่ในระบบแล้ว",
+                            "กรุณาระบุกรอกPasswordให้มากว่า6ตัวอักษร",
                             Toast.LENGTH_SHORT
                     ).show();
-                    Log.d("USER", "ALREADY EXIST");
+                    Log.d("USER", "pass < 6");
                 }
+
+                else if(pass_str != re_pass_str){
+                    Toast.makeText(getActivity(),
+                            "กรุณาระบุกรอกPasswordให้ตรงกัน",
+                            Toast.LENGTH_SHORT
+                    ).show();
+                    Log.d("USER", "pass != repass");
+                }
+
 
                 else {
                     getActivity().getSupportFragmentManager()
@@ -71,6 +82,19 @@ public class RegisterFragment extends Fragment {
                     Log.d("USER", "GOTO BMI");
                 }
 
+            }
+        });
+    }
+    void initBackBTN(){
+        TextView btn_regis_back = (TextView) getView().findViewById(R.id.regis_btn_back);
+        btn_regis_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("Weight", "Click ADD FORM");
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.main_view, new WeightFormFragment()).addToBackStack(null)
+                        .commit();
             }
         });
     }
