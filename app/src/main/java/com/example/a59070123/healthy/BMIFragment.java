@@ -59,7 +59,7 @@ public class BMIFragment extends Fragment {
                     Log.d("BMI", "FIELD NAME IS EMPTY");
                 }
                 else {
-                    Log.d("BMI", "BMI IS VAKUE");
+                    Log.d("BMI", "BMI IS VALUE");
                     cm_flo = (cm_flo/100)*(cm_flo/100);
                     Float bmi = kg_flo / cm_flo;
                     //bmi = bmi.shortValue();

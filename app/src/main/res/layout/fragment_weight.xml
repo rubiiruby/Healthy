@@ -42,7 +42,7 @@
             <ListView
                 android:id="@+id/weight_list"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"></ListView>
+                android:layout_height="400dp"></ListView>
 
             <Button
                 android:id="@+id/weight_btn_add"

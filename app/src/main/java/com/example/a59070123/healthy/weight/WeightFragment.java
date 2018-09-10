@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.a59070123.healthy.BMIFragment;
 import com.example.a59070123.healthy.MenuFragment;
 import com.example.a59070123.healthy.R;
 
@@ -78,18 +79,32 @@ public class WeightFragment extends Fragment {
 //        });
 
         /////////////BTN Add
-
-        /////////////BTN Back
-        TextView btn_bmi_back = (TextView) getView().findViewById(R.id.weight_btn_back);
-        btn_bmi_back.setOnClickListener(new View.OnClickListener() {
+        TextView btn_weight_add = (TextView) getView().findViewById(R.id.weight_btn_add);
+        btn_weight_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d("Weight", "Click ADD FORM");
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.main_view, new WeightFormFragment()).addToBackStack(null)
+                        .commit();
+            }
+        });
+
+        /////////////BTN Back
+        TextView btn_weight_back = (TextView) getView().findViewById(R.id.weight_btn_back);
+        btn_weight_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("Weight", "Click ADD BACK");
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.main_view, new MenuFragment()).addToBackStack(null)
                         .commit();
             }
         });
+
+
 
     }
 

@@ -58,7 +58,7 @@ public class MenuFragment extends Fragment {
                             .commit();
                 }
                 else if(menu.get(i).equals("Weight")){
-                    Log.d("MENU", "Click on Weight)");
+
                     getActivity().getSupportFragmentManager()
                             .beginTransaction()
                             .replace(R.id.main_view, new WeightFragment())
