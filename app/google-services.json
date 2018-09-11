@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "923847279031-gic79v7j2uqj7ejnbtlm50vedccmogvc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.a59070123.healthy",
+            "certificate_hash": "a33870a0cb0ef2d9770c30e0dfb4e893371ca91b"
+          }
+        },
+        {
           "client_id": "923847279031-02r1bopqksq9hpr9emshm3lojnik369j.apps.googleusercontent.com",
           "client_type": 3
         }
