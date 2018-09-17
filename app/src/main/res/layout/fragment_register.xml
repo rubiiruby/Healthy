@@ -74,7 +74,8 @@
                 android:layout_width="326dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
-                android:text="REGISTER NEW ACCOUNT" />
+                android:text="REGISTER NEW ACCOUNT"
+                />
 
         </LinearLayout>
     </ScrollView>
