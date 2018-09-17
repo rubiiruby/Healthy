@@ -24,7 +24,7 @@
                 android:layout_width="180dp"
                 android:layout_height="177dp"
                 android:layout_gravity="center"
-                app:srcCompat="@drawable/Healthy" />
+                app:srcCompat="@drawable/healthy" />
 
             <EditText
                 android:id="@+id/login_userId"
@@ -32,7 +32,7 @@
                 android:layout_height="51dp"
                 android:layout_margin="15dp"
                 android:drawableLeft="@drawable/ic_action_name"
-                android:hint="@string/user_id" />
+                android:hint="E-mail" />
 
             <EditText
                 android:id="@+id/login_pass"

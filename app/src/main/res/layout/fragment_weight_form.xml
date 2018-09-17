@@ -37,28 +37,29 @@
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/login_userId"
+                android:id="@+id/weight_form_date"
                 android:layout_width="323dp"
                 android:layout_height="51dp"
                 android:layout_margin="15dp"
                 android:drawableLeft="@drawable/ic_action_age"
-                android:hint="Date" />
+                android:hint="Day-Month-Year"
+                android:inputType="date"/>
 
             <EditText
-                android:id="@+id/login_pass"
+                android:id="@+id/weight_form_weight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
                 android:drawableLeft="@drawable/ic_action_weight"
-                android:hint="Weight(KG)"
-                android:inputType="textPassword" />
+                android:hint="Weight (KG)";
+                android:inputType="number" />
 
             <Button
                 android:id="@+id/weight_form_btn_add"
                 android:layout_width="326dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:text="บันทึก" />
+                android:text="Add Weight" />
 
 
         </LinearLayout>

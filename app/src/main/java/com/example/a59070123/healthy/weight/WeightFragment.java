@@ -30,9 +30,6 @@ public class WeightFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
-
-
         return inflater.inflate( R.layout.fragment_weight, container, false);
 
     }
@@ -54,30 +51,6 @@ public class WeightFragment extends Fragment {
                 weight
         );
         weightList.setAdapter(weightAdapter);
-
-
-        //////////////Array
-//        weight = new ArrayList<>();
-//        final ArrayAdapter<String> menuAdapter = new ArrayAdapter<String>(
-//                getActivity(),
-//                android.R.layout.simple_list_item_2,
-//                weight
-//        );
-//
-//        final ListView weightList = (ListView) getView().findViewById(R.id.weight_List);
-//        weightList.setAdapter(menuAdapter);
-//        weightList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//
-//                Log.d("MENU", "Click on menu = "+weight.get(i));
-//
-//                weight.add("");
-//                menuAdapter.notifyDataSetChanged();
-//
-//            }
-//        });
 
         /////////////BTN Add
         TextView btn_weight_add = (TextView) getView().findViewById(R.id.weight_btn_add);

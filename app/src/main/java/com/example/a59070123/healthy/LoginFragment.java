@@ -14,15 +14,18 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-/**
- * Created by LAB203_03 on 20/8/2561.
- */
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+
 
 public class LoginFragment extends Fragment {
+    FirebaseAuth userAuth;
+    FirebaseAuth User;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
         return inflater.inflate(R.layout.fragment_login, container, false);
     }
 
@@ -35,6 +38,8 @@ public class LoginFragment extends Fragment {
     }
 
     void initLoginBTN() {
+        userAuth = FirebaseAuth.getInstance();
+
         Button btn_login = (Button) getView().findViewById(R.id.login_login_btn);
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,22 +59,32 @@ public class LoginFragment extends Fragment {
                             Toast.LENGTH_SHORT
                     ).show();
 
-                    /////////////////////BYPASS
-                    getActivity().getSupportFragmentManager()
-                            .beginTransaction()
-                            .replace(R.id.main_view, new MenuFragment()).addToBackStack(null)
-                            .commit();
-                    ///////////////////don't forget delete
+//                    /////////////////////BYPASS
+//                    getActivity().getSupportFragmentManager()
+//                            .beginTransaction()
+//                            .replace(R.id.main_view, new MenuFragment()).addToBackStack(null)
+//                            .commit();
+//                    ///////////////////don't forget delete
 
                     Log.d("USER", "USER OR PASSWORD IS EMPTY");
-                } else if (userID_str.equals("admin") && pass_str.equals("admin")) {
-                    getActivity().getSupportFragmentManager()
-                            .beginTransaction()
-                            .replace(R.id.main_view, new MenuFragment()).addToBackStack(null)
-                            .commit();
-
-                    Log.d("USER", "GOTO BMI");
                 } else {
+                    userAuth.signInWithEmailAndPassword(userID_str, pass_str).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                        @Override
+                        public void onSuccess(AuthResult authResult) {
+                            getActivity().getSupportFragmentManager()
+                                    .beginTransaction()
+                                    .replace(R.id.main_view,new MenuFragment())
+                                    .commit();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(getActivity(),
+                                    "กรุณาระบุ USER OR PASSWORD ให้ถูกต้อง",
+                                    Toast.LENGTH_SHORT
+                            ).show();
+                        }
+                    });
                     Log.d("USER", "INVALID USER NAME OR PASSWORD");
                 }
             }
