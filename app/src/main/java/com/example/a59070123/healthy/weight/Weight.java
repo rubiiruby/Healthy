@@ -1,7 +1,7 @@
 package com.example.a59070123.healthy.weight;
 
 /**
- * Created by LAB203_02 on 27/8/2561.
+ * Created by Penporn Pettammarot 59070123 IT KMITL
  */
 
 public class Weight {
@@ -10,10 +10,16 @@ public class Weight {
      String status;
 
     public Weight(){}
+
     public Weight(String date, int weight, String status){
         this.date = date;
         this.weight = weight;
         this.status = status;
+    }
+
+    public Weight(String date, int weight){
+        this.date = date;
+        this.weight = weight;
     }
 
     public String getDate() {

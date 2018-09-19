@@ -19,6 +19,9 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+/**
+ * Created by Penporn Pettammarot 59070123 IT KMITL
+ */
 
 public class LoginFragment extends Fragment {
     FirebaseAuth userAuth;
@@ -71,10 +74,20 @@ public class LoginFragment extends Fragment {
                     userAuth.signInWithEmailAndPassword(userID_str, pass_str).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                         @Override
                         public void onSuccess(AuthResult authResult) {
-                            getActivity().getSupportFragmentManager()
-                                    .beginTransaction()
-                                    .replace(R.id.main_view,new MenuFragment())
-                                    .commit();
+                            if(userAuth.getCurrentUser().isEmailVerified()){
+                                getActivity().getSupportFragmentManager()
+                                        .beginTransaction()
+                                        .replace(R.id.main_view,new MenuFragment())
+                                        .commit();
+                            }
+                            else{
+                                Toast.makeText(getActivity(),
+                                        "Please verify your E-mail",
+                                        Toast.LENGTH_SHORT
+                                ).show();
+                            }
+
+
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override

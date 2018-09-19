@@ -42,7 +42,7 @@
                 android:layout_height="51dp"
                 android:layout_margin="15dp"
                 android:drawableLeft="@drawable/ic_action_age"
-                android:hint="Day-Month-Year"
+                android:hint="Year-Month-Day"
                 android:inputType="date"/>
 
             <EditText
@@ -51,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
                 android:drawableLeft="@drawable/ic_action_weight"
-                android:hint="Weight (KG)";
+                android:hint="Weight (KG)"
                 android:inputType="number" />
 
             <Button

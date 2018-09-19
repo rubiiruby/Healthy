@@ -21,7 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 /**
- * Created by LAB203_03 on 20/8/2561.
+ * Created by Penporn Pettammarot 59070123 IT KMITL
  */
 
 public class RegisterFragment extends Fragment {
@@ -39,9 +39,7 @@ public class RegisterFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
         fbAuth = FirebaseAuth.getInstance();
-
         initBackBTN();
         registerNewUser();
 

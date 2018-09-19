@@ -17,12 +17,20 @@ import com.google.firebase.auth.FirebaseAuth;
 import java.util.ArrayList;
 
 /**
- * Created by LAB203_02 on 27/8/2561.
+ * Created by Penporn Pettammarot 59070123 IT KMITL
  */
 
 public class MenuFragment extends Fragment {
 
     ArrayList<String> menu;
+
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        //return super.onCreateView(inflater, container, savedInstanceState);
+        return inflater.inflate(R.layout.fragment_menu, container, false);
+
+    }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -82,11 +90,5 @@ public class MenuFragment extends Fragment {
 
     }
 
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        //return super.onCreateView(inflater, container, savedInstanceState);
-        return inflater.inflate(R.layout.fragment_menu, container, false);
 
-    }
 }

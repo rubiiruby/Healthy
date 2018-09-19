@@ -21,7 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 /**
- * Created by LAB203_02 on 10/9/2561.
+ * Created by Penporn Pettammarot 59070123 IT KMITL
  */
 
 public class WeightFormFragment extends Fragment {
@@ -40,6 +40,7 @@ public class WeightFormFragment extends Fragment {
         firestore = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
         initSaveButton();
+        btnBack();
 
     }
 
@@ -55,18 +56,15 @@ public class WeightFormFragment extends Fragment {
                 String dateStr = date.getText().toString();
                 int weightStr = Integer.parseInt(weight.getText().toString());
 
-                dateStr = dateStr.replace("/","-");
-
-                String uid = auth.getUid();
+                dateStr = dateStr.replace("/","-"); //แปลงข้อมูล
 
                     Weight data = new Weight(
                             dateStr,
-                            Integer.valueOf(weightStr),
-                            "UP"
+                            Integer.valueOf(weightStr)
                     );
 
 
-
+                String uid = auth.getUid();
                 firestore.collection("myfitness")
                         .document(uid)
                         .collection("weight")
@@ -88,6 +86,23 @@ public class WeightFormFragment extends Fragment {
                         Toast.makeText(getActivity(), "Add Fail !!!", Toast.LENGTH_SHORT).show();
                     }
                 });
+
+            }
+        });
+    }
+
+    void btnBack(){
+        /////////////BTN Back
+        TextView btn_weight_back = (TextView) getView().findViewById(R.id.weight_form_btn_back);
+        btn_weight_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("Weight Form", "Click ADD BACK");
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.main_view, new WeightFragment())
+                        .addToBackStack(null)
+                        .commit();
             }
         });
     }

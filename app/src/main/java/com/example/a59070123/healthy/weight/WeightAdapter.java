@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by LAB203_02 on 27/8/2561.
+ * Created by Penporn Pettammarot 59070123 IT KMITL
  */
 
 public class WeightAdapter extends ArrayAdapter <Weight> {
@@ -39,11 +39,15 @@ public class WeightAdapter extends ArrayAdapter <Weight> {
 
         TextView date_text = (TextView) weightItem.findViewById(R.id.weight_item_date);
         TextView weight_text = (TextView) weightItem.findViewById(R.id.weight_item_weight);
+        TextView status_text = (TextView) weightItem.findViewById(R.id.weight_item_status);
+
 
         Weight row = weights.get(position);
 
         date_text.setText(row.getDate());
         weight_text.setText(Integer.toString(row.getWeight()));
+        status_text.setText(row.getStatus());
+
         return weightItem;
 
     }

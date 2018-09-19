@@ -6,6 +6,10 @@ import android.os.Bundle;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+/**
+ * Created by Penporn Pettammarot 59070123 IT KMITL
+ */
+
 public class MainActivity extends AppCompatActivity {
     FirebaseAuth firebase;
     FirebaseUser user;
@@ -18,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         if (savedInstanceState == null){
-            if(user.isAnonymous()){
+            if(user == null){
                 getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.main_view, new LoginFragment())
