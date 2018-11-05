@@ -44,8 +44,8 @@ public class SleepFragment extends Fragment {
             bundle.clear();
         }
 
-        btnAdd();
         getData();
+        btnAdd();
         btnBack();
 
     }
@@ -66,7 +66,7 @@ public class SleepFragment extends Fragment {
         db.getReadableDatabase();
         sleeps = db.getSleepList();
         ListView sleepList = getView().findViewById(R.id.sleep_list);
-        SleepAdapter sleepAdapter = new SleepAdapter(getActivity(), R.layout.fragment_sleep, sleeps);
+        SleepAdapter sleepAdapter = new SleepAdapter(getActivity(), R.layout.fragment_sleep_item, sleeps);
         sleepList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

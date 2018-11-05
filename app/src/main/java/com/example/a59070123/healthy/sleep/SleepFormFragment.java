@@ -101,8 +101,8 @@ public class SleepFormFragment extends Fragment {
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_view, new SleepFragment())
                         .addToBackStack(null).commit();
 
-//                Toast.makeText(getActivity(), "Success" +
-//                        "", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Success" +
+                        "", Toast.LENGTH_SHORT).show();
             }
         });
 

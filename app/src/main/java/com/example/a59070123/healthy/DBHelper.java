@@ -43,14 +43,14 @@ public class DBHelper extends SQLiteOpenHelper {
         sqLiteDatabase = this.getWritableDatabase();
 
         Cursor cursor = sqLiteDatabase.query
-                ("sleep", null, null, null, null, null, "date");
+                ("sleep", null, null, null, null, null, "date desc");
 
         if (cursor != null) {
             cursor.moveToFirst();
         }
 
         while(!cursor.isAfterLast()) {
-            Sleep sleep = new Sleep(cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4));
+            Sleep sleep = new Sleep(String.valueOf(cursor.getInt(0)),cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4));
             sleeps.add(sleep);
             cursor.moveToNext();
         }

@@ -12,12 +12,13 @@ public class Sleep implements Parcelable {
 
     public Sleep(){}
 
-    public Sleep(String date, String time_slp, String time_awake, String time_total, String id){
+    public Sleep(String id, String date, String time_slp, String time_awake, String time_total){
+        this.id = id;
         this.date = date;
         this.time_slp = time_slp;
         this.time_awake = time_awake;
         this.time_total = time_total;
-        this.id = id;
+
     }
 
     public Sleep(String date, String time_slp, String time_awake, String time_total){
