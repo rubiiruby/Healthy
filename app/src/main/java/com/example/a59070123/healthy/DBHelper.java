@@ -40,7 +40,6 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public ArrayList<Sleep> getSleepList() {
         ArrayList<Sleep> sleeps = new ArrayList<>();
-
         sqLiteDatabase = this.getWritableDatabase();
 
         Cursor cursor = sqLiteDatabase.query
@@ -51,31 +50,35 @@ public class DBHelper extends SQLiteOpenHelper {
         }
 
         while(!cursor.isAfterLast()) {
-
             Sleep sleep = new Sleep(cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4));
-
             sleeps.add(sleep);
-
             cursor.moveToNext();
         }
-
         sqLiteDatabase.close();
-
         return sleeps;
     }
 
     public void addSleep(Sleep sleep) {
         sqLiteDatabase = this.getWritableDatabase();
-
         ContentValues values = new ContentValues();
-        //values.put(Friend.Column.ID, friend.getId());
+
         values.put("date", sleep.getDate());
         values.put("sleepTime", sleep.getTime_slp());
         values.put("wakeTime", sleep.getTime_awake());
         values.put("totalSleep", sleep.getTime_total());
-
         sqLiteDatabase.insert("sleep", null, values);
+        sqLiteDatabase.close();
+    }
 
+    public void updateSleep(Sleep sleep, String ID) {
+        sqLiteDatabase = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put("date", sleep.getDate());
+        values.put("sleepTime", sleep.getTime_slp());
+        values.put("wakeTime", sleep.getTime_awake());
+        values.put("totalSleep", sleep.getTime_total());
+        sqLiteDatabase.update("sleep", values, "id="+ID, null );
         sqLiteDatabase.close();
     }
 }
