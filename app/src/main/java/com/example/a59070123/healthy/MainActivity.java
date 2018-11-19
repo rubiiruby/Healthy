@@ -5,37 +5,38 @@ import android.os.Bundle;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 /**
  * Created by Penporn Pettammarot 59070123 IT KMITL
  */
 
 public class MainActivity extends AppCompatActivity {
+    FirebaseFirestore mdb;
     FirebaseAuth firebase;
     FirebaseUser user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        firebase = FirebaseAuth.getInstance();
-        user = firebase.getCurrentUser();
         setContentView(R.layout.activity_main);
 
-        if (savedInstanceState == null){
-            if(user == null){
+        firebase = FirebaseAuth.getInstance();
+        user = firebase.getCurrentUser();
+        mdb = FirebaseFirestore.getInstance();
+
+        if(savedInstanceState == null) {
+            if(user == null) {
                 getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.main_view, new LoginFragment())
-                        .commit();
+                        .replace(R.id.main_view, new LoginFragment()).commit();
             }
-            else{
+            else {
                 getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.main_view, new MenuFragment())
-                    .commit();
+                        .beginTransaction()
+                        .replace(R.id.main_view, new MenuFragment()).commit();
             }
         }
-
 
     }
 }

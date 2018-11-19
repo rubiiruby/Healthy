@@ -73,7 +73,6 @@ public class DBHelper extends SQLiteOpenHelper {
     public void updateSleep(Sleep sleep, String ID) {
         sqLiteDatabase = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-
         values.put("date", sleep.getDate());
         values.put("sleepTime", sleep.getTime_slp());
         values.put("wakeTime", sleep.getTime_awake());

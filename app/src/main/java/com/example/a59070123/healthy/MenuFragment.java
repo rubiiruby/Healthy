@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.example.a59070123.healthy.Post.PostFragment;
 import com.example.a59070123.healthy.sleep.SleepFragment;
 import com.example.a59070123.healthy.weight.WeightFragment;
 import com.google.firebase.auth.FirebaseAuth;
@@ -42,6 +43,7 @@ public class MenuFragment extends Fragment {
         menu.add("BMI");
         menu.add("Weight");
         menu.add("Sleep");
+        menu.add("Post");
         menu.add("Sign Out");
 
         final ArrayAdapter<String> menuAdapter = new ArrayAdapter<String>(
@@ -84,6 +86,15 @@ public class MenuFragment extends Fragment {
                             .addToBackStack(null)
                             .commit();
                 }
+                else if(menu.get(i).equals("Post")){
+                    FirebaseAuth logout = FirebaseAuth.getInstance();
+                    logout.signOut();
+                    getActivity().getSupportFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.main_view, new PostFragment())
+                            .addToBackStack(null)
+                            .commit();
+                }
                 else if(menu.get(i).equals("Sign Out")){
                     FirebaseAuth logout = FirebaseAuth.getInstance();
                     logout.signOut();
@@ -93,6 +104,7 @@ public class MenuFragment extends Fragment {
                             .addToBackStack(null)
                             .commit();
                 }
+
 
 
             }
